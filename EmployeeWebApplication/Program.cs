@@ -1,3 +1,6 @@
+using EmployeesWebApplication.Services;
+using EmployeesWebApplication.Services.Impl;
+
 namespace EmployeesWebApplication
 {
     public class Program
@@ -6,8 +9,9 @@ namespace EmployeesWebApplication
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<IEmployeesRepository, EmployeesRepository>();
 
+            builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
