@@ -8,7 +8,6 @@ namespace EmployeesWebApplication.Controllers
 {
     public class EmployeesController : Controller
     {
-
         private readonly IEmployeesRepository _employeesRepository;
 
         public EmployeesController(IEmployeesRepository employeesRepository)
@@ -41,55 +40,12 @@ namespace EmployeesWebApplication.Controllers
 
         public IActionResult Create()
         {
+
             return View("Edit", new EmployeesViewModel());
         }
 
-        public IActionResult Edit(int? id)
-        {
-            if (id is null)
-                return View(new EmployeesViewModel());
-
-            var employee = _employeesRepository.GetById((int)id);
-            if (employee == null)
-                return NotFound();
-
-            return View(new EmployeesViewModel
-            {
-                Id = employee.Id,
-                FirstName = employee.FirstName,
-                Birthday = employee.Birthday,
-                LastName = employee.LastName,
-                Patronymic = employee.Patronymic
-            });
-        }
-
-        public IActionResult Delete(int id)
-        {
-            var employee = _employeesRepository.GetById((int)id);
-            if (employee == null)
-                return NotFound();
-
-            return View(new EmployeesViewModel
-            {
-                Id = employee.Id,
-                FirstName = employee.FirstName,
-                Birthday = employee.Birthday,
-                LastName = employee.LastName,
-                Patronymic = employee.Patronymic
-            });
-        }
-
-        [HttpPost]
         public IActionResult Edit(EmployeesViewModel model)
         {
-            if (model.LastName == "Иванов" && model.FirstName == "Иван" && model.Patronymic == "Иванович")
-                ModelState.AddModelError("", "Слишком банальное ФИО!");
-
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
             var employee = new Employee
             {
                 Id = model.Id,
@@ -113,13 +69,15 @@ namespace EmployeesWebApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult DeleteConfirm(int id)
-        {
-            if (!_employeesRepository.Remove(id))
-                return NotFound();
 
-            return RedirectToAction("Index");
+        //public IActionResult Edit(int id)
+        //{
+        //    return View();
+        //}
+
+        public IActionResult Delete(int id)
+        {
+            return View();
         }
     }
 }

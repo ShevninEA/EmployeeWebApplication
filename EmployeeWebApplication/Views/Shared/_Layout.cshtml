@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
+    <partial name="Partial/_Styles" />
 
-    <partial name="Partial/_Styles"/>
 </head>
 <body>
-    <partial name="Partial/_Header"/>
+
+    <partial name="Partial/_Header" />
+
     <div class="container">
         @RenderBody()
     </div>
-    <partial name="Partial/_Footer"/>
-    <partial name="Partial/_Scripts"/>
+
+    <partial name="Partial/_Footer" />
+
+    <partial name="Partial/_Scripts" />
 </body>
 </html>
