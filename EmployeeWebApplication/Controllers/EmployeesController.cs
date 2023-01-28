@@ -41,8 +41,11 @@ namespace EmployeesWebApplication.Controllers
 
         public IActionResult Create()
         {
+
             return View("Edit", new EmployeesViewModel());
         }
+
+
 
         public IActionResult Edit(int? id)
         {
@@ -61,6 +64,7 @@ namespace EmployeesWebApplication.Controllers
                 LastName = employee.LastName,
                 Patronymic = employee.Patronymic
             });
+
         }
 
         public IActionResult Delete(int id)
@@ -89,6 +93,7 @@ namespace EmployeesWebApplication.Controllers
             {
                 return View(model);
             }
+
 
             var employee = new Employee
             {
@@ -121,5 +126,6 @@ namespace EmployeesWebApplication.Controllers
 
             return RedirectToAction("Index");
         }
+
     }
 }

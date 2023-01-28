@@ -3,7 +3,7 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
-      "library": "jquery@3.6.3",
+      "library": "jquery@3.6.1",
       "destination": "wwwroot/lib/jquery/"
     },
     {
@@ -23,12 +23,12 @@
     },
     {
       "provider": "cdnjs",
-      "library": "bootstrap@5.2.3",
+      "library": "bootstrap@5.2.1",
       "destination": "wwwroot/lib/bootstrap/"
     },
     {
       "provider": "cdnjs",
-      "library": "font-awesome@6.2.1",
+      "library": "font-awesome@6.2.0",
       "destination": "wwwroot/lib/font-awesome/"
     }
   ]
